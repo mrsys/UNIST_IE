@@ -36,6 +36,7 @@
 
 ##### 3) 보고서
 (1) 프로젝트 진행해 필요한 데이터도 직접 구하기 위해 조사하는 단계
+
 (2) 데이터를 통해 질병의 치료비를 분석하는 것과 유사한 사례의 논문들을 찾아 리뷰
 + 초기 3개월 진행 보고서 :  [보고서](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/AI%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%83%9D%EC%95%A0%EC%A3%BC%EA%B8%B0%EB%B3%84%20%EC%A7%88%EB%B3%91%20%EC%B9%98%EB%A3%8C%EB%B9%84%20%EC%98%88%EC%B8%A1/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%A7%84%ED%96%89%EC%9D%98%20%EC%9D%BC%EB%B6%80%20%EC%9E%90%EB%A3%8C/%5B2021-1%ED%95%99%EA%B8%B0%5DYoungseok_Song_Research%20Internship%20Report.pdf)
 
