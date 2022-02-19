@@ -36,24 +36,26 @@
 
 ##### 3) 보고서
 (1) 프로젝트 진행해 필요한 데이터도 직접 구하기 위해 조사하는 단계
-(2)데이터를 통해 질병의 치료비를 분석하는 것과 유사한 사례의 논문들을 찾아 리뷰
+(2) 데이터를 통해 질병의 치료비를 분석하는 것과 유사한 사례의 논문들을 찾아 리뷰
 + 초기 3개월 진행 보고서 :  [보고서](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/AI%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EC%83%9D%EC%95%A0%EC%A3%BC%EA%B8%B0%EB%B3%84%20%EC%A7%88%EB%B3%91%20%EC%B9%98%EB%A3%8C%EB%B9%84%20%EC%98%88%EC%B8%A1/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%A7%84%ED%96%89%EC%9D%98%20%EC%9D%BC%EB%B6%80%20%EC%9E%90%EB%A3%8C/%5B2021-1%ED%95%99%EA%B8%B0%5DYoungseok_Song_Research%20Internship%20Report.pdf)
 
 ### 2. BC카드 데이터를 이용한 분석 프로젝트 
 
 해당 프로젝트는 BC카드의 실제 사용 내역 데이터를 이용하여 유의미한 분석을 해
-보는 프로젝트 또한 진행하였습니다. 
+보는 프로젝트 또한 진행하였습니다.
+
+순서
 1) BC카드에서 제공한 개인의 가맹점 결제기록 데이터 전처리
 2) feature가 매우 다양해를 autoencoder를 통해 차원을 축소
 3) N2D clustering 기법을 적용하여 군집화
 4) 클러스터간의 특징, 월별 특징, transition matrix을 보며 의미도출
 
 ##### 1) 진행
-+ 1. 업종의 소분류 되어진 자료를 묶어서 재분류 및 전처리 : [1. 전처리.ipynb ](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/1.%20%EC%A0%84%EC%B2%98%EB%A6%AC.ipynb) 
-+ 2. 2019년 4월 부터 2020년 4월까지의 결제 데이터이므로 전부 합쳐서 전처리 적용
++  업종의 소분류 되어진 자료를 묶어서 재분류 및 전처리 : [1. 전처리.ipynb ](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/1.%20%EC%A0%84%EC%B2%98%EB%A6%AC.ipynb) 
++  2019년 4월 부터 2020년 4월까지의 결제 데이터이므로 전부 합쳐서 전처리 적용
  : [2.월별 데이터 합치기.ipynb](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/2.%20%EC%9B%94%EB%B3%84%20%EB%8D%B0%EC%9D%B4%ED%84%B0%20%ED%95%A9%EC%B9%98%EA%B8%B0.ipynb)
-+ 3. Autoencoder를 거치고 GMM을 이용하여 clustering하였다. 그리고 cluster별로 어떤 업종이 많은지 (어떤 구매 유형을 띄는지)와 transition matrix를 통해 구매이동 분석 :  [3. 클러스터링.ipynb](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/3.%20%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%A7%81.ipynb)
-+ 4. 2019년 1월부터 2020년 4월까지 클러스터 비중과 양이 얼마나 변하였는지를 관찰하여 코로나 전후로 소비 패턴에서 유의미한 변화를 결과로 도출 [4. 월별분석_클러스터.ipynb](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/4.%20%EC%9B%94%EB%B3%84%EB%B6%84%EC%84%9D_%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0.ipynb)
++  Autoencoder를 거치고 GMM을 이용하여 clustering하였다. 그리고 cluster별로 어떤 업종이 많은지 (어떤 구매 유형을 띄는지)와 transition matrix를 통해 구매이동 분석 :  [3. 클러스터링.ipynb](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/3.%20%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0%EB%A7%81.ipynb)
++ 2019년 1월부터 2020년 4월까지 클러스터 비중과 양이 얼마나 변하였는지를 관찰하여 코로나 전후로 소비 패턴에서 유의미한 변화를 결과로 도출 [4. 월별분석_클러스터.ipynb](https://github.com/mrsys/UNIST_IE/blob/main/%5B%EA%B8%88%EC%9C%B5%EA%B3%B5%ED%95%99%20%EC%97%B0%EA%B5%AC%EB%B3%B4%EC%A1%B0%5D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/BC%EC%B9%B4%EB%93%9C%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC%20%EC%9D%B4%EC%9A%A9%ED%95%9C%20%EB%B6%84%EC%84%9D%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/python%20code/4.%20%EC%9B%94%EB%B3%84%EB%B6%84%EC%84%9D_%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0.ipynb)
 
 
 ##### 2) 관련 문서
